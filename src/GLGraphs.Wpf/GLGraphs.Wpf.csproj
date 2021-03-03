@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenTK" Version="4.3.0" />
+      <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GLGraphs\GLGraphs.csproj" />
+    </ItemGroup>
+
+</Project>

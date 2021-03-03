@@ -4,10 +4,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLGraphs", "src\GLGraphs\GLGraphs.csproj", "{F85268CA-9372-4743-A00C-F03C38D1A7D6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{13CF7B75-D2DC-4403-9A6A-2DCB7F6BCBFF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{13CF7B75-D2DC-4403-9A6A-2DCB7F6BCBFF}"
 ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{F4C88048-4A75-4069-A0EB-92ADD2C3DC58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGraph", "src\Examples\ScatterGraph\ScatterGraph.csproj", "{2F627AFD-746F-44FB-A236-D951833921A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLGraphs.Wpf", "src\GLGraphs.Wpf\GLGraphs.Wpf.csproj", "{080B02BA-705D-47DB-8943-9C6662C4E3ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkGraph", "src\Examples\NetworkGraph\NetworkGraph.csproj", "{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,5 +29,21 @@ Global
 		{F85268CA-9372-4743-A00C-F03C38D1A7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F85268CA-9372-4743-A00C-F03C38D1A7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F85268CA-9372-4743-A00C-F03C38D1A7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F627AFD-746F-44FB-A236-D951833921A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F627AFD-746F-44FB-A236-D951833921A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F627AFD-746F-44FB-A236-D951833921A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F627AFD-746F-44FB-A236-D951833921A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080B02BA-705D-47DB-8943-9C6662C4E3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080B02BA-705D-47DB-8943-9C6662C4E3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080B02BA-705D-47DB-8943-9C6662C4E3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080B02BA-705D-47DB-8943-9C6662C4E3ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F627AFD-746F-44FB-A236-D951833921A9} = {F4C88048-4A75-4069-A0EB-92ADD2C3DC58}
+		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932} = {F4C88048-4A75-4069-A0EB-92ADD2C3DC58}
 	EndGlobalSection
 EndGlobal
