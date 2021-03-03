@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using GLGraphs.CartesianGraph;
 using GLGraphs.ObjectTKExtensions;
+using JetBrains.Annotations;
 using OpenTK.Mathematics;
 
 namespace GLGraphs.NetGraph {
@@ -41,7 +42,36 @@ namespace GLGraphs.NetGraph {
         public bool IsCameraAutoControlled { get; set; }
         public Box2 DragRectangle { get; set; }
         public Vector2 MousePosition { get; set; }
-        public GraphPt<T>? MouseoverTarget { get; set; }
+
+
+        public GraphPt<T>? MouseoverTarget {
+            get
+            {
+                if (SelectedIndex == -1) {
+                    return null;
+                }
+                var node = _data.Nodes[SelectedIndex];
+                var (x, y) = Positions[SelectedIndex];
+                return new GraphPt<T>(null, node, x, y);
+            }
+            set
+            {
+                if (value == null) {
+                    SelectedIndex = -1;
+                    return;
+                }
+                var node = value.Value.Value;
+                if (EqualityComparer<T>.Default.Equals(node, default)) {
+                    SelectedIndex = -1;
+                }
+                else if (_data.NodeToIndex.TryGetValue(node, out var idx)) {
+                    SelectedIndex = idx;
+                }
+                else {
+                    SelectedIndex = -1;
+                }
+            }
+        }
 
 
         /// The currently selected node index.
@@ -121,10 +151,36 @@ namespace GLGraphs.NetGraph {
         public void Click() {
             
         }
-        public bool TryGetMouseover(Vector2 clientToView, out GraphPt<T> o) {
-            o = default;
-            return false;
+        
+        public bool TryGetMouseover(Vector2 mousePosViewSpace, out GraphPt<T> mouseOver) {
+            // rescale into view co-ordinates
+            var (x, y) = mousePosViewSpace * 2.0f - Vector2.One;
+            // project mouse into world
+            var inverseVp = Camera.Current.ViewProjection.Inverted();
+
+            var worldPos = (new Vector4(x, -y, 0, 1) * inverseVp).Xy;
+
+            var best = -1;
+            for (int i = 0; i < _data.Count; i++) {
+                var pos = Positions[i];
+                var weight = Weights[i];
+                var scale = _cfg.WeightToScale(weight);
+                var dist = Vector2.Distance(pos, worldPos);
+                if (dist < scale) {
+                    best = i;
+                }
+            }
+
+            if (best == -1) {
+                mouseOver = default;
+            }
+            else {
+                var node = _data.Nodes[best];
+                mouseOver = new GraphPt<T>(null, node, worldPos.X, worldPos.Y);
+            }
+            return best != -1;
         }
+        
 
         //Fruchterman-Reingol
         //Kobourov, Stephen G. (2012), Spring Embedders and Force-Directed Graph Drawing Algorithms

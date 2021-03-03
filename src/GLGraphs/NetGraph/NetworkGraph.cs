@@ -2,7 +2,6 @@ using System;
 using GLGraphs.CartesianGraph;
 using GLGraphs.ObjectTKExtensions;
 using JetBrains.Annotations;
-using OpenTK.Mathematics;
 
 namespace GLGraphs.NetGraph {
     
@@ -46,39 +45,6 @@ namespace GLGraphs.NetGraph {
         /// Renders this network graph.
         public void Render() {
             _renderer.Render(_state);
-        }
-
-        /// Retrieves the current mouseover item.
-        /// This requires the mouse position in VIEW space. This is a co-ordinate system where:
-        /// Top left is (0,0) and bottom right is (1,1).
-        /// To get to this from screen (pixel) co-ordinates, divide x/y by screen width/height respectively, then flip the Y value. 
-        [Pure]
-        public bool TryGetMouseover(Vector2 mousePosViewSpace, out T mouseOver) {
-            // rescale into view co-ordinates
-            var (x, y) = mousePosViewSpace * 2.0f - Vector2.One;
-            // project mouse into world
-            var inverseVp = Camera.Current.ViewProjection.Inverted();
-
-            var worldPos = (new Vector4(x, -y, 0, 1) * inverseVp).Xy;
-
-            var best = -1;
-            for (int i = 0; i < _data.Count; i++) {
-                var pos = _state.Positions[i];
-                var weight = _state.Weights[i];
-                var scale = _cfg.WeightToScale(weight);
-                var dist = Vector2.Distance(pos, worldPos);
-                if (dist < scale) {
-                    best = i;
-                }
-            }
-
-            if (best == -1) {
-                mouseOver = default;
-            }
-            else {
-                mouseOver = _data.Nodes[best];
-            }
-            return best != -1;
         }
 
         /// When called, this object will destroy any resources.

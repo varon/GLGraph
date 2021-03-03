@@ -1,6 +1,9 @@
+using GLGraphs.CartesianGraph;
+using GLGraphs.NetGraph;
+using JetBrains.Annotations;
 using OpenTK.Mathematics;
 
-namespace GLGraphs.CartesianGraph {
+namespace GLGraphs {
     /// A point on the cartesian graph.
     public readonly struct GraphPt<T> {
         
@@ -23,6 +26,8 @@ namespace GLGraphs.CartesianGraph {
         public Vector2 Position => new Vector2(X, Y);
 
         /// The series this point belongs to.
+        /// This may be null if the point does not belong to a fixed series, i.e. in a <see cref="NetworkGraph{T}"/>
+        [CanBeNull]
         public GraphSeries<T> Series { get; }
     }
 }
