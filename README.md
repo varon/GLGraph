@@ -2,11 +2,14 @@
 
 GLGraphs is a real-time graphing/charting/data visualization library for .NET that runs standalone or integrated into WPF.
 
+
+![Image](screenshot.gif)
+
 The API is easily discoverable and simple to work with.
 
 ```c#
-// Create a scatter graph with strings as the point values.
-var graph = new ScatterGraph<string>();
+// Create a new graph with strings as the point values.
+var graph = new CartesianGraph<string>();
 // Add a series:
 var series = graph.state.AddSeries(SeriesType.Point, "Example Series");
 // Add some points:
@@ -22,7 +25,7 @@ graph.State.Update(deltaTime)
 graph.Render()
 ```
 
-For more info, see the [Examples (TODO)](TODO).
+For more info, see the [Examples](src/Examples).
 
 ## Features
 
@@ -78,7 +81,6 @@ Drop by the OpenTK Discord and ping [@varon](https://github.com/varon) in the #g
 Way, way faster than LiveCharts.
 
 Easily 10 million points with full camera animation at 60fps.
-
 
 
 ### How did you get this so fast?
