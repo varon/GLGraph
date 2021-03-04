@@ -5,7 +5,7 @@ using OpenTK.Mathematics;
 
 namespace Examples.ScatterGraph {
     /// Generates test graph data
-    internal static class TestGraphGenerator {
+    public static class ScatterGraphGenerator {
 
         [Pure]
         public static Vector2 GenNormalDistPt(Random r) {

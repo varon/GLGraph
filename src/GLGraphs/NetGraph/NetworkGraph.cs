@@ -28,6 +28,9 @@ namespace GLGraphs.NetGraph {
 
         public IGraphState<T> State => _state;
 
+        /// The data for this network graph.
+        public NetworkGraphData<T> Data => _data;
+
         /// The currently selected item in this network graph.
         /// If this is null, then no item is selected.
         [CanBeNull]

@@ -29,10 +29,9 @@ namespace Examples.NetworkGraph {
         public static void Main() {
             _window = new GameWindow(GameWindowSettings.Default, _nativeWindowSettings);
 
-            var graphData = TestGraphGenerator.GenerateNetworkGraph();
             var cfg = NetworkGraphConfig.Default;
             cfg.LabelDisplayMode = LabelDisplayMode.SelectedAndAdjacent;
-            _graph = new NetworkGraph<string>(graphData, cfg);
+            _graph = NetGraphGenerator.GenerateNetworkGraph(cfg);
 
             var aspect = (float) _window.ClientSize.X / _window.ClientSize.Y;
             _graph.Camera.Target.AspectRatio = aspect;

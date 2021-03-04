@@ -5,11 +5,11 @@ using OpenTK.Mathematics;
 
 namespace Examples.NetworkGraph {
     /// Generates test graph data
-    internal static class TestGraphGenerator {
+    public static class NetGraphGenerator {
         
         [Pure]
         [NotNull]
-        public static NetworkGraphData<string> GenerateNetworkGraph() {
+        public static NetworkGraph<string> GenerateNetworkGraph(NetworkGraphConfig cfg = null) {
             const int count = 96;
             const double linkDensity = 0.65 / count;
             var r = new Random(21);
@@ -43,7 +43,8 @@ namespace Examples.NetworkGraph {
             }
             // set the categories up (placeholder/blank for now)
             var categories = new int[count];
-            return new NetworkGraphData<string>(nodes, weights, connections, categories);
+            var data = new NetworkGraphData<string>(nodes, weights, connections, categories);
+            return new NetworkGraph<string>(data, cfg);
         }
 
         [Pure]

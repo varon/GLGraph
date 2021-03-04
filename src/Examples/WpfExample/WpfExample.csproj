@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>netcoreapp3.1-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenTK" Version="4.3.0" />
+      <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\GLGraphs.Wpf\GLGraphs.Wpf.csproj" />
+      <ProjectReference Include="..\..\GLGraphs\GLGraphs.csproj" />
+      <ProjectReference Include="..\NetworkGraph\NetworkGraph.csproj" />
+      <ProjectReference Include="..\ScatterGraph\ScatterGraph.csproj" />
+    </ItemGroup>
+
+</Project>

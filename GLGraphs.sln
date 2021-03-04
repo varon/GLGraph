@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLGraphs.Wpf", "src\GLGraph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkGraph", "src\Examples\NetworkGraph\NetworkGraph.csproj", "{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExample", "src\Examples\WpfExample\WpfExample.csproj", "{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,9 +43,14 @@ Global
 		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F627AFD-746F-44FB-A236-D951833921A9} = {F4C88048-4A75-4069-A0EB-92ADD2C3DC58}
 		{5E9B8FFA-8F08-49C4-9A2C-E42FF2BA9932} = {F4C88048-4A75-4069-A0EB-92ADD2C3DC58}
+		{06C7B9D7-DD80-4F26-B7C6-3D31D22DA40F} = {F4C88048-4A75-4069-A0EB-92ADD2C3DC58}
 	EndGlobalSection
 EndGlobal

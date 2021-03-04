@@ -38,7 +38,7 @@ namespace Examples.ScatterGraph {
                 // _graph = new NetworkGraph<string>(graphData);
             }
             else {
-                _graph = TestGraphGenerator.GenerateScatterGraph();
+                _graph = ScatterGraphGenerator.GenerateScatterGraph();
             }
 
             var aspect = (float) _window.ClientSize.X / _window.ClientSize.Y;
@@ -59,7 +59,7 @@ namespace Examples.ScatterGraph {
             var r = new Random();
             var seriesIdx = r.Next(_graph.State.Series.Count);
             var series = _graph.State.Series[seriesIdx];
-            var (x, y) = TestGraphGenerator.GenNormalDistPt(r);
+            var (x, y) = ScatterGraphGenerator.GenNormalDistPt(r);
             var pt = DateTime.UtcNow.Ticks;
             var str = pt.ToString();
             var offset = series.Points.Count;
